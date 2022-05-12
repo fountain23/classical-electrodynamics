@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>E and B Fields, Cylindrical Coordinates</title>
+  <link rel="stylesheet" href="../main2.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+$$\require{physics}$$
+
+<p>
+	E and B Fields, Cylindrical Coordinates
+</p>
+
+
+<p>
+A  = Magnetic  Potential 
+
+</p>
+
+<p>
+$$
+\vb{A_{\theta}} = - \mu K 
+
+\left( \left(  
+
+\frac{ z - \lambda /4 }{ r \sqrt{r^2 + (z-\lambda /4)^2} }  
+
+\;   e^{ -j2\pi \frac{ \sqrt{ r^2 + (z-\lambda /4)^2 }} {\lambda}  }
+
+\right) -   \\\
+
+\left(
+
+\frac{ z+\lambda/4 }{   r \sqrt{ r^2+(z+\lambda/4)^2 }}
+
+\; e^{ -j2 \pi \frac{ \sqrt{ r^2+(z+\lambda/4)^2)} }{ \lambda} }
+
+\right) \right)
+
+$$
+</p>
+
+
+
+<p>
+$$
+
+
+\mathbf{B_r} = \mu K 
+
+\left(
+\left(
+
+\frac{r}{ (r^2+(z-\lambda /4)^2)^{1.5} }
++ j2\pi \frac{ (z- \lambda/4)^2}{ \lambda r(r^2+ (z-\lambda/4)^2)  }
+
+\right)
+
+e^{ -j2 \pi \frac{ \sqrt{ r^2 + (z-\lambda/4)^2 }}{ \lambda }}
+
+\\
+- \\
+
+
+\left(
+
+\frac{ r }  { (r^2+(z+ \lambda/4)^2)^{1.5} }
++ j2 \pi \frac{ (z+\lambda/4)^2 }{ \lambda r(r^2+(z+\lambda/4)^2) }  
+
+\right)
+e^{-j2\pi \frac{ \sqrt{ r^2+(z+\lambda/4)^2}}{\lambda}}
+
+\right)
+
+
+$$
+</p>
+
+
+<p>
+$$
+\vb{B_z} = \mu K 
+\left[
+
+\left[
+(z-\lambda/4) \left(  \frac{1}{ (r^2 + (z-\lambda/4)^2 )^{1.5} }
++ \frac{j2\pi}{ \lambda(r^2+ (z-\lambda/4)^2 ) } \right)
+
+e^{ -j2\pi \frac{ \sqrt{r^2+ (z-\lambda /4)^2} }{ \lambda} }
+\right]
+
+- 
+
+\left[
+(z+\lambda/4) \left( \frac{1}{ (r^2+(z+\lambda/4)^2)^{1.5} }
++ \frac{j2\pi}{ \lambda(r^2+(z+\lambda/4)^2) } \right)
+
+e^{-j2\pi \frac{ \sqrt{r^2+(z+\lambda/4)^2}} {λ} }
+\right]
+
+\right]
+$$
+</p>
+
+<p>
+E = Electric Field (cyl)
+</p>
+
+<p>
+$$
+E = \frac{1}{ j \omega \epsilon \mu } \curl \vb{B} 
+$$
+</p>
+
+<p>
+$$
+\vb{E_{\theta}} = j2\pi \sqrt{ \frac{\mu}{\epsilon}} \; K 
+
+\left[
+\left(
+\frac{z-\lambda/4}
+{\lambda r\sqrt{r^2+ (z-\lambda/4)^2}} 
+\right)
+e^{ -j2\pi \frac{ \sqrt{r^2+ (z-\lambda/4)^2}}{\lambda}}
+
+
+- 
+
+\left(
+\frac{z+\lambda/4}{ \lambda r \sqrt{r^2+(z+\lambda/4)^2}  }
+\right)
+e^{-j2\pi \frac{ \sqrt{ r^2+(z+\lambda /4)^2}} {λ} }
+\right]
+$$
+</p>
+
+<p>
+fθ = Osc Frequency
+
+</p>
+
+<p>
+$$
+f_{\theta} = \frac{C}{ \lambda } \; Hz 
+$$
+</p>
+
+<p>
+$$
+f_{\theta} = \frac{3 \times 10^8}{ \lambda } \; Hz 
+$$
+</p>
+
+<p>
+<pre>
+
+###  E_theta
+
+A = (z - (lambda/4)) / ( lambda*r * sqrt( r**2 + (z - (lambda/4))**2 ))
+EA = -I*2*pi * ( sqrt( r**2 + (z - (lambda/4))**2 ) / lambda )
+
+B = (z + (lambda/4)) / (lambda*r * sqrt( r**2 + (z + (lambda/4))**2 ))
+EB = -I*2*pi * ( sqrt( r**2 + (z + (lambda/4))**2 ) / lambda )
+
+E_theta = I*2*pi * sqrt(mu/epsilon) * K * (( A * exp(EA) ) - (B * exp(EB)))
+
+
+</pre>
+
+
+
+</p>
+
+
+<p>
+	http://info.ee.surrey.ac.uk/Workshop/advice/coils/mu/
+</p>
+
+</body>
+</html>
+
